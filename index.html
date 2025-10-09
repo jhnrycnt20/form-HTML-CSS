@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Personal Information Form</h1>
+
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+        <small class="error" id="firstNameError"></small>
+      </div>
+
+      <div class="field">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+        <small class="error" id="lastNameError"></small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <small class="error" id="emailError"></small>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Optional (digits only)">
+        <small class="error" id="phoneError"></small>
+      </div>
+
+      <div class="field">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" placeholder="Optional" min="0" max="120">
+        <small class="error" id="ageError"></small>
+      </div>
+
+      <div class="field">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="3" placeholder="Optional"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="placeOfBirth">Place of Birth</label>
+        <input type="text" id="placeOfBirth" name="placeOfBirth" placeholder="Optional">
+      </div>
+
+      <div class="field">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth">
+      </div>
+
+      <div class="field">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+          <option value="">Select...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Non-binary</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="religion">Religion</label>
+        <select id="religion" name="religion">
+          <option value="">Select...</option>
+          <option>Christianity</option>
+          <option>Islam</option>
+          <option>Hinduism</option>
+          <option>Buddhism</option>
+          <option>Judaism</option>
+          <option>Other</option>
+          <option>Prefer not to say</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit">Submit</button>
+    </form>
+
+    <section id="output" aria-live="polite" class="output"></section>
+  </main>
+
+  <script src="script.js"></script>
+  </body>
+  </html>
+
+
