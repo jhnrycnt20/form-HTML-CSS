@@ -25,11 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return onlyDigits.test(value);
   }
 
-  function validateAge(value) {
-    if (value === '') return true; // optional
-    var num = Number(value);
-    return Number.isFinite(num) && num >= 0 && num <= 120;
-  }
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -38,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var lastName = document.getElementById('lastName').value.trim();
     var email = document.getElementById('email').value.trim();
     var phone = document.getElementById('phone').value.trim();
-    var age = document.getElementById('age').value.trim();
     var address = document.getElementById('address') ? document.getElementById('address').value.trim() : '';
     var placeOfBirth = document.getElementById('placeOfBirth') ? document.getElementById('placeOfBirth').value.trim() : '';
     var dateOfBirth = document.getElementById('dateOfBirth') ? document.getElementById('dateOfBirth').value : '';
@@ -70,12 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
       setError('phone', '');
     }
 
-    if (!validateAge(age)) {
-      setError('age', 'Age must be between 0 and 120');
-      isValid = false;
-    } else {
-      setError('age', '');
-    }
 
     if (!isValid) {
       output.textContent = 'Please fix the errors above and submit again.';
@@ -87,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function () {
       lastName: lastName,
       email: email,
       phone: phone,
-      age: age,
       address: address,
       placeOfBirth: placeOfBirth,
       dateOfBirth: dateOfBirth,

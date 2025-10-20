@@ -20,13 +20,25 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
+  function calculateAge(dateOfBirth) {
+    if (!dateOfBirth) return '(empty)';
+    var birthDate = new Date(dateOfBirth);
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   var lines = [
     'You submitted:',
     '- First Name: ' + (data.firstName || '(empty)'),
     '- Last Name: ' + (data.lastName || '(empty)'),
     '- Email: ' + (data.email || '(empty)'),
     '- Phone: ' + (data.phone || '(empty)'),
-    '- Age: ' + (data.age || '(empty)'),
+    '- Age: ' + calculateAge(data.dateOfBirth),
     '- Address: ' + (data.address || '(empty)'),
     '- Place of Birth: ' + (data.placeOfBirth || '(empty)'),
     '- Date of Birth: ' + (data.dateOfBirth || '(empty)'),
